@@ -1,0 +1,80 @@
+
+/* This changes the background to grey and adjusts layout*/
+body{
+	background: grey;
+	color: black;
+	margin-left: 20px;
+	margin-right: 20px;
+	padding-bottom: 20px;
+	padding-top: 10px;
+}
+
+/* This changes the font family to monospace and makes a red border */
+.main{
+	font-family: monospace;
+	border: 3px solid red;
+	padding: 20px;
+	padding-bottom: 30px;
+}
+
+/* This centers the heading */
+.main {
+	text-align: center;
+
+}
+
+.about {
+	text-indent: 40px;
+}
+h2{
+	text-decoration: underline;
+}
+
+/* This makes the image responsize--adjusts it for screensize */
+img{
+	max-width: 100%;
+	height: auto;
+}
+
+a{
+color: blue;
+text-decoration: none;
+}
+
+.indent{
+margin-left:15px;
+}
+p{
+	padding: 10px;
+font-size:25px;
+}
+
+label textarea{
+	vertical-align: middle;
+}
+
+input[type=text] {
+width: 90px;
+height: 25px;
+}
+input[type=radio]{
+	size: 30px;
+}
+table {
+    border-collapse:collapse;
+    width: 100%;
+    
+}
+
+table th{
+	border:2px solid black;
+	height: 50px;
+	text-align: center;
+}
+
+table td {
+   border:2px solid black;
+   padding-right: 5px;
+   padding-left: 5px;
+   text-align: center;
+}

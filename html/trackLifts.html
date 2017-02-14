@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Track My Lifts!</title>
+<meta charset="utf-8">
+
+      <!-- import jQuery -->
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/trackLifts.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.min.css"/>
+<!-- import our own stylesheet -->
+<link rel="stylesheet" type="text/css" href="../css/styles.css"/>
+
+</head>
+
+<body>
+
+<!-- make Navbar-->
+
+<nav class="navbar navbar-default">  
+  <div class="container-fluid">
+   <div class="navbar-header">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
+     <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+   </div> 
+   <div class="collapse navbar-collapse"  id="main-navbar">
+     <ul class="nav navbar-nav">
+       <li><a href="http://www.richardsonprogramming.com">RichardsonProgramming</a></li>
+       <li><a href="../index.html">Why Strength Train?</a></li>
+       <li><a href="whySSBT.html">Why Starting Strength?</a></li>
+       <li><a href="videos.html">Video Instructions</a></li>
+       <li><a href="howStrong.html">How Strong Should I Be?</a></li>
+       <li class="active"><a href="#">Track My Lifts</a></li>
+     </ul>
+   </div>
+   </div>
+  </nav>
+
+<div class= "main">
+<h1>Track My Lifts </h1>
+<h3> See My Strength Progress! </h3>
+</div>
+
+  <ol class="breadcrumb">
+  <li><a href="http://www.richardsonprogramming.com">RichardsonProgramming</a></li>
+  <li><a href="../index.html">Why Strength Train?</a></li>
+  <li><a href="whySSBT.html">Why Starting Strength?</a></li>
+  <li><a href="videos.html">Video Instructions</a></li>
+  <li><a href="howStrong.html">How Strong Should I Be?</a></li>
+  <li class="active">Track My Lifts</li>
+  </ol>
+
+<br>
+<label for="date">Date of workout: </label>
+<input type="text" id="date" placeholder="mm/dd/yyyy"><br> <!-- would use input type="date" but its string is in form: 2016-11-16-->
+
+<label for="squat">Squat (Leave blank if not performed): </label>
+<input type="text" id="squat" placeholder="WTxREPxSET"><br>
+
+<label for="bench">Bench (Leave blank if not performed):</label>
+<input type="text" id="bench" placeholder="WTxREPxSET"><br>
+
+<label for="press">Press (Leave blank if not performed): </label>
+<input type="text" id="press" placeholder="WTxREPxSET"><br>
+
+<label for="dl">Deadlift (Leave blank if not performed): </label>
+<input type="text" id="dl" placeholder="WTxREPxSET"> <br>
+
+<label for="pc">Power Clean (Leave blank if not performed): </label>
+<input type="text" id="pc" placeholder="WTxREPxSET"><br>
+
+<button id="saveWorkout">Save Workout</button> <br>
+
+<!--<button id="createButton">Create Chart</button>  Create and use this button when I get chart.js working-->
+
+<br>
+<ul id="workoutList">
+	
+</ul>
+<table id="workoutTable">
+	<tr>
+		<th>Date: </th>
+		<th>Squat: </th>
+		<th>Bench: </th>
+		<th>Deadlift: </th>
+		<th>Press: </th>
+		<th>Power Clean: </th>
+	</tr>
+
+</table>
+
+
+</body>
+
+</html>
