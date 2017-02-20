@@ -57,7 +57,7 @@
 
 <br>
 <label for="date">Date of workout: </label>
-<input type="text" id="date" placeholder="mm/dd/yyyy"><br> <!-- would use input type="date" but its string is in form: 2016-11-16-->
+<input type="text" id="date" placeholder="mm/dd/yyyy" required><br> <!-- would use input type="date" but its string is in form: 2016-11-16-->
 
 <label for="squat">Squat (Leave blank if not performed): </label>
 <input type="text" id="squat" placeholder="WTxREPxSET"><br>
@@ -82,7 +82,8 @@
 <ul id="workoutList">
 	
 </ul>
-<table id="workoutTable">
+<div class="table-responsive">
+<table class="table" id="workoutTable">
 	<tr>
 		<th>Date: </th>
 		<th>Squat: </th>
@@ -93,7 +94,7 @@
 	</tr>
 
 </table>
-
+</div>
 
 </body>
 

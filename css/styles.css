@@ -26,15 +26,6 @@ body{
 .about {
 	text-indent: 40px;
 }
-h2{
-	text-decoration: underline;
-}
-
-/* This makes the image responsize--adjusts it for screensize */
-img{
-	max-width: 100%;
-	height: auto;
-}
 
 a{
 color: blue;
@@ -46,6 +37,8 @@ margin-left:15px;
 }
 p{
 	padding: 10px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 font-size:25px;
 }
 
@@ -60,21 +53,5 @@ height: 25px;
 input[type=radio]{
 	size: 30px;
 }
-table {
-    border-collapse:collapse;
-    width: 100%;
-    
-}
 
-table th{
-	border:2px solid black;
-	height: 50px;
-	text-align: center;
-}
 
-table td {
-   border:2px solid black;
-   padding-right: 5px;
-   padding-left: 5px;
-   text-align: center;
-}
