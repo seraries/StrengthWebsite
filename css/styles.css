@@ -8,50 +8,45 @@ body{
 	padding-bottom: 20px;
 	padding-top: 10px;
 }
-
+footer{
+	text-align: center;
+	font-size: 12px;
+}
+p{
+	padding: 10px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	font-size:25px;
+}
+input[type=text] {
+	width: 100px;
+	height: 25px;
+}
+input[type=radio]{
+	size: 30px;
+}
+label{
+	font-weight: lighter;
+	font-size: 16px;
+}
+a{
+	color: blue;
+	text-decoration: none;
+}
 /* This changes the font family to monospace and makes a red border */
 .main{
 	font-family: monospace;
 	border: 3px solid red;
 	padding: 20px;
 	padding-bottom: 30px;
-}
-
-/* This centers the heading */
-.main {
 	text-align: center;
-
 }
-
 .about {
 	text-indent: 40px;
 }
-
-a{
-color: blue;
-text-decoration: none;
-}
-
 .indent{
-margin-left:15px;
-}
-p{
-	padding: 10px;
-	padding-top: 0px;
-	padding-bottom: 0px;
-font-size:25px;
+	margin-left:15px;
 }
 
-label textarea{
-	vertical-align: middle;
-}
-
-input[type=text] {
-width: 90px;
-height: 25px;
-}
-input[type=radio]{
-	size: 30px;
-}
 
 

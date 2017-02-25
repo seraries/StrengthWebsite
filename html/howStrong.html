@@ -1,105 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-<title>How Strong Should I Be?</title>
-<meta charset="utf-8">
-      <!-- import jQuery -->
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/howStrong.js"></script>
-<link rel="stylesheet" href="../css/bootstrap.min.css"/>
-<!-- import our own stylesheet -->
-<link rel="stylesheet" type="text/css" href="../css/styles.css"/>
+  <head>
+    <title>How Strong Should I Be?</title>
+    <meta charset="utf-8">
+    <!-- import jQuery -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/howStrong.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <!-- import own stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/styles.css"/>
+  </head>
 
+  <body>
+    <nav class="navbar navbar-default" role="navigation">  
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div> 
+        <div class="collapse navbar-collapse"  id="main-navbar">
+          <ul class="nav navbar-nav">
+            <li><a href="http://www.richardsonprogramming.com">RichardsonProgramming</a></li>
+            <li><a href="../index.html">Why Strength Train?</a></li>
+            <li><a href="whySSBT.html">Why Starting Strength?</a></li>
+            <li><a href="videos.html">Video Instructions</a></li>
+            <li class="active"><a href="#">How Strong Should I Be?</a></li>
+            <li><a href="trackLifts.html">Track My Lifts</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-</head>
+    <header class= "main">
+      <h1>How Strong Should I Be? </h1>
+    </header>
 
-<body>
+    <ol class="breadcrumb" role="navigation">
+      <li><a href="http://www.richardsonprogramming.com">RichardsonProgramming</a></li>
+      <li><a href="../index.html">Why Strength Train?</a></li>
+      <li><a href="whySSBT.html">Why Starting Strength?</a></li>
+      <li><a href="videos.html">Video Instructions</a></li>
+      <li class="active">How Strong Should I Be?</li>
+    </ol>
 
-<!-- make Navbar-->
+    <section>
+      <p class="about">If you commit to 1 year of consistent and progressive strength training, you can expect to demonstrate, at minimum, the following capabilities based on your gender and weight.</p>
+    </section>
+    
+    <section>
+      <label for="maleButton">Male
+        <input id = "maleButton" type = "radio" name =buttons value = "Male"/>
+      </label>
+      <label for="femaleButton">Female
+        <input id = "femaleButton" type = "radio" name =buttons value = "Female"/>
+      </label>
+    </section>
+    <br>
 
-<nav class="navbar navbar-default">  
-  <div class="container-fluid">
-   <div class="navbar-header">
-     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
-     <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-   </div> 
-   <div class="collapse navbar-collapse"  id="main-navbar">
-     <ul class="nav navbar-nav">
-       <li><a href="http://www.richardsonprogramming.com">RichardsonProgramming</a></li>
-       <li><a href="../index.html">Why Strength Train?</a></li>
-       <li><a href="whySSBT.html">Why Starting Strength?</a></li>
-       <li><a href="videos.html">Video Instructions</a></li>
-       <li class="active"><a href="#">How Strong Should I Be?</a></li>
-       <li><a href="trackLifts.html">Track My Lifts</a></li>
-     </ul>
-   </div>
-   </div>
-  </nav>
+    <section>
+      <label for="selectWeight">What is your nearest weight in pounds?
+        <select id="selectWeight" class = "weightRange" name = "weight">
+          <option value=""></option>
+          <option value="97">97</option>
+          <option value="105">105</option>
+          <option value="114">114</option>
+          <option value="123">123</option>
+          <option value="132">132</option> 
+          <option value="148">148</option>
+          <option value="165">165</option>
+          <option value="181">181</option>
+          <option value="198">198</option>
+          <option value="220">220</option>
+          <option value="242">242</option>
+          <option value="275">275</option>
+        </select>
+      </label>
+    </section>
+    <br>
 
-<div class= "main">
-<h1>How Strong Should I Be? </h1>
-</div>
+    <section>
+      <label for="squat">You can squat at least (in lbs):
+        <input id="squat" type="text" name="squat"/>
+      </label>
+      <label for="bench">You can bench at least (in lbs):
+        <input id="bench" type="text" name="bench"/>
+      <label for="deadlift">You can deadlift at least (in lbs):
+        <input id="deadlift" type="text" name="deadlift"/>
+      </label>
+    </section>
 
-  <ol class="breadcrumb">
-  <li><a href="http://www.richardsonprogramming.com">RichardsonProgramming</a></li>
-  <li><a href="../index.html">Why Strength Train?</a></li>
-  <li><a href="whySSBT.html">Why Starting Strength?</a></li>
-  <li><a href="videos.html">Video Instructions</a></li>
-  <li class="active">How Strong Should I Be?</li>
-  </ol>
-
-<p>If you commit to one year of consistent and progressive strength training, you can expect to demonstrate at minimum the following capabilities based on your gender and weight.</p>
-
-<form>
-<label>
-Male
-<input id = "maleButton" type = "radio" name =buttons value = "Male">
-</label>
-<label>
-Female
-<input id = "femaleButton" type = "radio" name =buttons value = "Female">
-</label>
-</form>
-
-<form>
-<label>
-What is your nearest weight in pounds?
-</label>
-<select class = "weightRange" name = "weight">
-<option value=""></option>
-<option value="97">97</option>
-<option value="105">105</option>
-<option value="114">114</option>
-<option value="123">123</option>
-<option value="132">132</option> 
-<option value="148">148</option>
-<option value="165">165</option>
-<option value="181">181</option>
-<option value="198">198</option>
-<option value="220">220</option>
-<option value="242">242</option>
-<option value="275">275</option>
-</select>
-</form>
-
-<label>You can squat at least (in lbs):
-<input id="squat" type="text" name="squat"></input>
-</label>
-<label>You can bench at least (in lbs):
-<input id="bench" type="text" name="bench"></input>
-<label>You can deadlift at least (in lbs):
-<input id="deadlift" type="text" name="deadlift"></input>
-</label>
-
-
-<div id="BLANK">
-</div>
-
-</body>
-
+    <footer>
+      &copyrichardsonprogramming.com
+    </footer>
+  </body>
 </html>

@@ -1,5 +1,4 @@
 window.onload = function(){
-	// Do I need to put something here?
 	calculateLifts();
 }
 
@@ -27,8 +26,6 @@ $(".weightRange").change(function(){
 		alert("Please select male or female, then re-select your weight")
 		$(".weightRange").val('')
 	}
-	
-
 });
 
 function printWomenLifts(){
@@ -140,7 +137,6 @@ function printMenLifts(){
 		$("#squat").val("319");
 		$("#bench").val("239");
 		$("#deadlift").val("373");
-
 	}
 }
 
