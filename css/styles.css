@@ -33,6 +33,12 @@ a{
 	color: blue;
 	text-decoration: none;
 }
+figure, figcaption{
+	display: block;
+	font-style: italic;
+	font-size: 16px;
+	text-align: center;
+}
 /* This changes the font family to monospace and makes a red border */
 .main{
 	font-family: monospace;
