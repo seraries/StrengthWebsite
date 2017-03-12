@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <!--make it responsive on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- import jQuery -->
-  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!--import AngularJS-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/trackLifts.js"></script>
   <link rel="stylesheet" href="../css/bootstrap.min.css"/>
@@ -14,7 +14,7 @@
   <link rel="stylesheet" type="text/css" href="../css/styles.css"/>
   </head>
 
-  <body>
+  <body ng-app="trackLiftsApp" ng-cloak ng-controller="trackLiftsCtrl">
     <nav class="navbar navbar-default">  
       <div class="container-fluid">
         <div class="navbar-header">
@@ -53,41 +53,47 @@
     </ol>
     <br>
 
-    <label for="date">Date of workout: 
-      <input type="text" id="date" placeholder="mm/dd/yyyy" required />
-    </label>
-    <br> 
+     <!--need to make this a form to use the date validation in ng-show -->
+    <form name="myForm" novalidate>
+      <label for="date">Date of workout: 
+        <input name="date" ng-model="date" type="text" id="date" placeholder="mm/dd/yyyy" required />
+        <span class="alerts" ng-show="myForm.date.$touched && !isGoodDate()">Please enter a date, e.g., 02/24/2017</span>
+      </label>
+      <br>
 
-    <label for="squat">Squat (Leave blank if not performed): 
-      <input type="text" id="squat" placeholder="WTxREPxSET"/>
-    </label>
+      <label for="squat">Squat (Leave blank if not performed): 
+        <input name="squat" ng-model="squat" type="text" id="squat" placeholder="WTxREPxSET"/>
+        <span class="alerts" ng-show="myForm.squat.$touched && !isFormatted(squat)">Please enter lift in format like 225x3x5</span>
+      </label>
+      <br>
+
+      <label for="bench">Bench (Leave blank if not performed):
+        <input name="bench" ng-model="bench" type="text" id="bench" placeholder="WTxREPxSET"/>
+        <span class="alerts" ng-show="myForm.bench.$touched && !isFormatted(bench)">Please enter lift in format like 225x3x5</span>
+      </label>
+      <br>
+
+      <label for="press">Press (Leave blank if not performed): 
+        <input name="press" ng-model="press" type="text" id="press" placeholder="WTxREPxSET"/>
+        <span class="alerts" ng-show="myForm.press.$touched && !isFormatted(press)">Please enter lift in format like 225x3x5</span>
+      </label>
+      <br>
+
+      <label for="dl">Deadlift (Leave blank if not performed): 
+        <input name="dl" ng-model="dl" type="text" id="dl" placeholder="WTxREPxSET"/> 
+        <span class="alerts" ng-show="myForm.dl.$touched && !isFormatted(dl)">Please enter lift in format like 225x3x5</span>
+      </label> 
+      <br>
+
+      <label for="pc">Power Clean (Leave blank if not performed): 
+        <input name="pc" ng-model="pc" type="text" id="pc" placeholder="WTxREPxSET"/>
+        <span class="alerts" ng-show="myForm.pc.$touched && !isFormatted(pc)">Please enter lift in format like 225x3x5</span>
+      </label>
+    </form> 
     <br>
 
-    <label for="bench">Bench (Leave blank if not performed):
-      <input type="text" id="bench" placeholder="WTxREPxSET"/>
-    </label>
+    <button ng-click="saveWorkout()" id="saveWorkout">Save Workout</button> <br>
     <br>
-
-    <label for="press">Press (Leave blank if not performed): 
-      <input type="text" id="press" placeholder="WTxREPxSET"/>
-    </label>
-    <br>
-
-    <label for="dl">Deadlift (Leave blank if not performed): 
-      <input type="text" id="dl" placeholder="WTxREPxSET"/> 
-    </label> 
-    <br>
-
-    <label for="pc">Power Clean (Leave blank if not performed): 
-      <input type="text" id="pc" placeholder="WTxREPxSET"/>
-    </label>
-    <br>
-
-    <button id="saveWorkout">Save Workout</button> <br>
-    <br>
-
-    <ul id="workoutList">
-	  </ul>
 
     <div class="table-responsive">
       <table class="table" id="workoutTable">
@@ -99,11 +105,21 @@
       		<th>Press: </th>
       		<th>Power Clean: </th>
       	</tr>
+        </tr> <!-- added this below to test out angular table -->
+        <tr ng-repeat="x in wrkts">
+          <td>{{ x.date }}</td>
+          <td>{{ x.squat }}</td>
+          <td>{{ x.bench }}</td>
+          <td>{{ x.deadlift }}</td>
+          <td>{{ x.press }}</td>
+          <td>{{ x.powerClean }}</td>
+        </tr>
       </table>
     </div>
     
      <footer>
-      &copyrichardsonprogramming.com
+      &copy;richardsonprogramming.com
     </footer>
+
   </body>
 </html>

@@ -53,6 +53,10 @@ figure, figcaption{
 .indent{
 	margin-left:15px;
 }
-
+.alerts{
+	font-size: 14px;
+	font-style: italic;
+	color: purple;
+}
 
 
