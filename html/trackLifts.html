@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <!--make it responsive on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- import jQuery -->
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
   <!--import AngularJS-->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
@@ -106,7 +108,7 @@
       		<th>Power Clean: </th>
       	</tr>
         </tr> <!-- added this below to test out angular table -->
-        <tr ng-repeat="x in wrkts">
+        <tr ng-repeat="x in wrkts track by $index">
           <td>{{ x.date }}</td>
           <td>{{ x.squat }}</td>
           <td>{{ x.bench }}</td>

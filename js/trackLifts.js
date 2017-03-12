@@ -1,7 +1,22 @@
 angular.module('trackLiftsApp', []).controller('trackLiftsCtrl', 
-function($scope) {
+['$scope', '$window', function($scope, $window) {
+	// If I want to clear local storage, use this: $window.localStorage.clear();
+
+	// this function needs to come before its call in $scope.workouts below
+	$scope.getSavedWorkouts = function (key) {
+  // if none saved in local storage, create new array
+	  var workoutArray = $window.localStorage.getItem(key);
+	  if (workoutArray == null || workoutArray == ""){
+	    workoutArray = new Array();
+	  }
+	  else {
+	  	workoutArray = JSON.parse(workoutArray);
+	  }
+	  return workoutArray;
+	}
 	// holds array of workouts--get from local storage if some have been saved, or make new array.
-	$scope.wrkts = [];
+	$scope.wrkts = $scope.getSavedWorkouts("workouts");
+	
 
 	$scope.isGoodDate = function () {
 	  // if input field is empty, it's no good; but if it matches regex it's okay
@@ -24,7 +39,7 @@ function($scope) {
 	    return liftRE.test(lift);
 	  }
 	}
-	
+
 	$scope.saveWorkout = function () {
 	  // validate data and alert if date or lifts are formatted wrong
 	  if (!$scope.isGoodDate()) {
@@ -34,7 +49,11 @@ function($scope) {
 	    !$scope.isFormatted($scope.dl) || !$scope.isFormatted($scope.press) || !$scope.isFormatted($scope.pc)) {
 	    alert("Please Enter Your Lifts In The Form of 135x5x3, for example")
 	  }
-	  // got good data, so save it and reset form
+	  // alert user if they've only entered date field and no data about lifts
+	  else if (!$scope.squat && !$scope.bench && !$scope.dl && !$scope.press && !$scope.pc) {
+	    alert("Please Enter Results For At Least One Lift")
+	  }
+	  // got good data, so get details, save it, and reset the form
 	  // workout object holds data for current workout being submitted
 	  else {
 	    var workout = {
@@ -45,7 +64,10 @@ function($scope) {
 	      press: $scope.press,
 	      powerClean: $scope.pc,
 	    }
+	    // this makes new entry appear on the page
 	    $scope.wrkts.push(workout);
+	    // this saves the newly appended wrkts array to local storage
+	    $window.localStorage.setItem("workouts", JSON.stringify($scope.wrkts));
 	    // reset form values and make "untouched"
 	    $scope.date = "";
 	    $scope.squat = "";
@@ -56,5 +78,5 @@ function($scope) {
 	    $scope.myForm.$setUntouched(); 
 	  }
 	}
-});
+}]);
 
