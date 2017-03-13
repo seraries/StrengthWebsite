@@ -1,7 +1,7 @@
 
 /* This changes the background to grey and adjusts layout*/
 body{
-	background: grey;
+	background: #BBBBBB;
 	color: black;
 	margin-left: 20px;
 	margin-right: 20px;
@@ -30,21 +30,28 @@ label{
 	font-size: 16px;
 }
 a{
-	color: blue;
+	color: #23527c;
 	text-decoration: none;
 }
+
 figure, figcaption{
 	display: block;
 	font-style: italic;
 	font-size: 16px;
 	text-align: center;
 }
+h2 {
+	font-size: 20px
+}
+button {
+	background-color: #93C393;
+}
+
 /* This changes the font family to monospace and makes a red border */
 .main{
 	font-family: monospace;
-	border: 3px solid red;
-	padding: 20px;
-	padding-bottom: 30px;
+	border: 3px solid #C6352F;
+	padding-bottom: 10px;
 	text-align: center;
 }
 .about {
@@ -58,5 +65,7 @@ figure, figcaption{
 	font-style: italic;
 	color: purple;
 }
-
+.breadcrumb {
+	background-color: #FFFFFF;
+}
 
