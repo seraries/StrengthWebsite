@@ -1,10 +1,17 @@
 angular.module('trackLiftsApp', []).controller('trackLiftsCtrl', 
-['$scope', '$window', function($scope, $window) {
+['$scope', '$window', '$http', function($scope, $window, $http) {
 	// If I want to clear local storage, use this: $window.localStorage.clear();
 	$scope.reverseSort = true;
+	// getLifts.php returns string of json style lift entries or empty string
+	//$scope.wrkts = [];
+
+	$http.get("../php/getLifts.php").then(function(response) {
+			//$scope.wrkts = JSON.parse(response.data);
+			$scope.wrkts = response.data;
+		});
 
 	// this function needs to come before its call in $scope.workouts below
-	$scope.getSavedWorkouts = function (key) {
+	/*$scope.getSavedWorkouts = function (key) {
   // if none saved in local storage, create new array
 	  var workoutArray = $window.localStorage.getItem(key);
 	  if (workoutArray == null || workoutArray == ""){
@@ -17,7 +24,7 @@ angular.module('trackLiftsApp', []).controller('trackLiftsCtrl',
 	}
 	// holds array of workouts--get from local storage if some have been saved, or make new array.
 	$scope.wrkts = $scope.getSavedWorkouts("workouts");
-	
+	*/
 
 	$scope.isGoodDate = function () {
 	  // if input field is empty, it's no good; but if it matches regex it's okay
@@ -50,7 +57,7 @@ angular.module('trackLiftsApp', []).controller('trackLiftsCtrl',
 	    !$scope.isFormatted($scope.dl) || !$scope.isFormatted($scope.press) || !$scope.isFormatted($scope.pc)) {
 	    alert("Please Enter Your Lifts In The Form of 135x5x3, for example")
 	  }
-	  // alert user if they've only entered date field and no data about lifts
+	  // alert user if they have only entered date field and no data about lifts
 	  else if (!$scope.squat && !$scope.bench && !$scope.dl && !$scope.press && !$scope.pc) {
 	    alert("Please Enter Results For At Least One Lift")
 	  }
@@ -67,10 +74,16 @@ angular.module('trackLiftsApp', []).controller('trackLiftsCtrl',
 	    }
 	    // this saves the new entry to wrkts
 	    $scope.wrkts.push(workout);
+	    // var myData = JSON.stringify($scope.wrkts);
+	    $http.post("../php/setLifts.php", $scope.wrkts).then(function(response){
+	    	$scope.wrkts = response.data;
+	    });
+	    /*
 	    // this saves the newly appended wrkts array to local storage
 	    $window.localStorage.setItem("workouts", JSON.stringify($scope.wrkts));
 	    // Need to get the newly appended wrkts array from local storage (so it sorts correctly)
 	    $scope.wrkts = $scope.getSavedWorkouts("workouts");
+	    */
 	    // reset form values and make "untouched"
 	    $scope.date = "";
 	    $scope.squat = "";
