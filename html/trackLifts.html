@@ -97,10 +97,11 @@
     <button ng-click="saveWorkout()" id="saveWorkout">Save Workout</button> <br>
     <br>
 
-    <div class="table-responsive">
+    <div id="liftTable" class="table-responsive">
       <table class="table" id="workoutTable">
       	<tr>
-      		<th>Date: </th>
+          <!--make the date th clickable so user can reverse sorting by date-->
+      		<th><a href="#liftTable" ng-click="reverseSort = !reverseSort">Date: </a></th>
       		<th>Squat: </th>
       		<th>Bench: </th>
       		<th>Deadlift: </th>
@@ -108,8 +109,8 @@
       		<th>Power Clean: </th>
       	</tr>
         </tr> <!-- added this below to test out angular table -->
-        <tr ng-repeat="x in wrkts track by $index">
-          <td>{{ x.date }}</td>
+        <tr ng-repeat="x in wrkts | orderBy: 'date':reverseSort track by $index">
+          <td>{{ x.date | date: 'MM/dd/yyyy'}}</td> <!--caps for MM is necessary-->
           <td>{{ x.squat }}</td>
           <td>{{ x.bench }}</td>
           <td>{{ x.deadlift }}</td>

@@ -1,6 +1,7 @@
 angular.module('trackLiftsApp', []).controller('trackLiftsCtrl', 
 ['$scope', '$window', function($scope, $window) {
 	// If I want to clear local storage, use this: $window.localStorage.clear();
+	$scope.reverseSort = true;
 
 	// this function needs to come before its call in $scope.workouts below
 	$scope.getSavedWorkouts = function (key) {
@@ -57,7 +58,7 @@ angular.module('trackLiftsApp', []).controller('trackLiftsCtrl',
 	  // workout object holds data for current workout being submitted
 	  else {
 	    var workout = {
-	      date: $scope.date,
+	      date: new Date($scope.date),
 	      squat: $scope.squat,
 	      bench: $scope.bench,
 	      deadlift: $scope.dl,
@@ -66,6 +67,8 @@ angular.module('trackLiftsApp', []).controller('trackLiftsCtrl',
 	    }
 	    // this makes new entry appear on the page
 	    $scope.wrkts.push(workout);
+	    // sort the array to be in order of most recent date first (descending):
+
 	    // this saves the newly appended wrkts array to local storage
 	    $window.localStorage.setItem("workouts", JSON.stringify($scope.wrkts));
 	    // reset form values and make "untouched"
