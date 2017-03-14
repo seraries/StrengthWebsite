@@ -65,12 +65,12 @@ angular.module('trackLiftsApp', []).controller('trackLiftsCtrl',
 	      press: $scope.press,
 	      powerClean: $scope.pc,
 	    }
-	    // this makes new entry appear on the page
+	    // this saves the new entry to wrkts
 	    $scope.wrkts.push(workout);
-	    // sort the array to be in order of most recent date first (descending):
-
 	    // this saves the newly appended wrkts array to local storage
 	    $window.localStorage.setItem("workouts", JSON.stringify($scope.wrkts));
+	    // Need to get the newly appended wrkts array from local storage (so it sorts correctly)
+	    $scope.wrkts = $scope.getSavedWorkouts("workouts");
 	    // reset form values and make "untouched"
 	    $scope.date = "";
 	    $scope.squat = "";
